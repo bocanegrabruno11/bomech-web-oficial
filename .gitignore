@@ -1,0 +1,61 @@
+# ==========================================
+# GENERAL / SISTEMA OPERATIVO Y EDITORES
+# ==========================================
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# ==========================================
+# BACKEND (Python / FastAPI)
+# Carpeta: back-api-bomech/
+# ==========================================
+# Entornos virtuales
+back-api-bomech/venv/
+back-api-bomech/.venv/
+back-api-bomech/env/
+back-api-bomech/ENV/
+
+# Caché de Python
+back-api-bomech/**/__pycache__/
+back-api-bomech/**/*.py[cod]
+back-api-bomech/*$py.class
+
+# Variables de entorno y credenciales
+back-api-bomech/.env
+back-api-bomech/.env.*
+!back-api-bomech/.env.example
+
+# Archivos de pruebas / cobertura / pytest
+back-api-bomech/.pytest_cache/
+back-api-bomech/.coverage
+back-api-bomech/htmlcov/
+
+# ==========================================
+# FRONTEND (Node / React / Vite)
+# Carpeta: bomech-web-oficial/
+# ==========================================
+# Dependencias
+bomech-web-oficial/node_modules/
+
+# Salidas de compilación (build)
+bomech-web-oficial/dist/
+bomech-web-oficial/dist-ssr/
+bomech-web-oficial/build/
+
+# Variables de entorno
+bomech-web-oficial/.env
+bomech-web-oficial/.env.local
+bomech-web-oficial/.env.*.local
+!bomech-web-oficial/.env.example
+
+# Logs de gestores de paquetes
+bomech-web-oficial/npm-debug.log*
+bomech-web-oficial/yarn-debug.log*
+bomech-web-oficial/yarn-error.log*
+bomech-web-oficial/pnpm-debug.log*
+
+# Caché de Vite / TypeScript
+bomech-web-oficial/.vite/
+bomech-web-oficial/*.tsbuildinfo
