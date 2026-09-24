@@ -1,111 +1,1019 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bg-puro: #070707;
+  --bg-carbon: #101010;
+  --bg-tarjeta: #151515;
+  --bg-tarjeta-hover: #1f1f1f;
+  --borde-sutil: #282828;
+  --borde-dorado: rgba(197, 160, 89, 0.45);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --dorado-principal: #c5a059;
+  --dorado-brillante: #e5c158;
+  --dorado-suave: #dfc488;
+  --dorado-glow: rgba(197, 160, 89, 0.18);
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --vino-profundo: #4a0d1b;
+  --vino-glow: rgba(74, 13, 27, 0.35);
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --texto-blanco: #ffffff;
+  --texto-suave: #ececec;
+  --texto-ceniza: #a3a3a3;
+  --texto-apagado: #737373;
+
+  --fuente-titulos: 'Cormorant Garamond', Georgia, serif;
+  --fuente-cuerpo: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
+  background-color: var(--bg-puro);
+  color: var(--texto-suave);
+  font-family: var(--fuente-cuerpo);
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Layout General */
+.pagina-principal-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-puro);
+}
+
+.contenedor-general {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* Tipografía y Acentos */
+.subtitulo-dorado {
+  display: inline-block;
+  font-family: var(--fuente-cuerpo);
+  color: var(--dorado-principal);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.titulo-seccion-grande {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 600;
+  color: var(--texto-blanco);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.separador-dorado {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dorado-principal), transparent);
+  margin: 1.25rem auto 0 auto;
+}
+
+/* Encabezado Superior */
+.header-casillero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, border-color 0.3s ease, padding 0.3s ease;
+  background: linear-gradient(180deg, rgba(7, 7, 7, 0.95) 0%, transparent 100%);
+  padding: 1.2rem 0;
+}
+
+.header-scrolled {
+  background: rgba(7, 7, 7, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--borde-sutil);
+  padding: 0.85rem 0;
+}
+
+.header-casillero-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-casillero {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.brand-name {
+  font-family: var(--fuente-titulos);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--texto-blanco);
+  text-transform: uppercase;
+}
+
+.nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .nav-desktop {
+    display: flex;
+  }
+}
+
+.nav-desk-link {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--texto-ceniza);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  text-transform: uppercase;
+}
+
+.nav-desk-link:hover,
+.nav-desk-link.active {
+  color: var(--dorado-brillante);
+}
+
+.btn-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--borde-sutil);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-menu-trigger:hover {
+  border-color: var(--dorado-principal);
+  color: var(--dorado-brillante);
+}
+
+.menu-trigger-text {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* Menú Overlay Fullscreen */
+.menu-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(7, 7, 7, 0.98);
+  backdrop-filter: blur(22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: 1.75rem;
+  right: 1.75rem;
+  background: transparent;
+  border: none;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.menu-close-btn:hover {
+  color: var(--dorado-principal);
+}
+
+.menu-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.menu-brand-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.menu-brand-title {
+  font-family: var(--fuente-titulos);
+  font-size: 2.4rem;
+  letter-spacing: 0.1em;
+  color: var(--texto-blanco);
+  font-weight: 700;
+}
+
+.menu-brand-tagline {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--dorado-principal);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.menu-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.menu-link-item {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--texto-suave);
+  text-decoration: none;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.menu-link-item:hover {
+  color: var(--dorado-brillante);
+  transform: translateY(-2px);
+}
+
+.menu-language-selector {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--dorado-principal);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--borde-sutil);
+  margin-bottom: 2rem;
+}
+
+.menu-social-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link {
+  color: var(--texto-ceniza);
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: var(--dorado-brillante);
+}
+
+/* Hero Principal */
+.hero-casillero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 5rem 1.5rem;
+  background-image: radial-gradient(circle at 50% 30%, var(--vino-glow), transparent 60%),
+    linear-gradient(180deg, rgba(7, 7, 7, 0.45) 0%, #070707 100%),
+    url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-casillero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 7, 7, 0.72);
+}
+
+.hero-casillero-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.hero-casillero-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.05;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+}
+
+.hero-casillero-descripcion {
+  font-size: 1.1rem;
+  color: var(--texto-suave);
+  max-width: 680px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+}
+
+.btn-dorado-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--dorado-principal), #8f6c2c);
+  color: #000;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.95rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-dorado-hero:hover {
+  background: linear-gradient(135deg, var(--dorado-brillante), var(--dorado-principal));
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(197, 160, 89, 0.4);
+}
+
+/* Grilla de Vinos */
+.grilla-vinos-casillero {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Tarjeta Vino */
+.tarjeta-vino-casillero {
+  background: var(--bg-tarjeta);
+  border: 1px solid var(--borde-sutil);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-vino-casillero:hover {
+  transform: translateY(-6px);
+  border-color: var(--borde-dorado);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.9), 0 0 20px var(--dorado-glow);
+}
+
+.tarjeta-vino-imagen-caja {
+  position: relative;
+  height: 310px;
+  background: #0b0b0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--borde-sutil);
+}
+
+.tarjeta-vino-img {
+  max-height: 90%;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.tarjeta-vino-casillero:hover .tarjeta-vino-img {
+  transform: scale(1.08);
+}
+
+.tarjeta-vino-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.placeholder-sub {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  color: var(--dorado-principal);
+  margin-top: 0.5rem;
+}
+
+.tarjeta-vino-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.tarjeta-vino-cuerpo {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tarjeta-vino-categoria {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--dorado-principal);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta-vino-titulo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--texto-blanco);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tarjeta-vino-detalles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.detalle-tag {
+  background: var(--bg-carbon);
+  border: 1px solid var(--borde-sutil);
+  color: var(--texto-ceniza);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+}
+
+.tarjeta-vino-pie {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--borde-sutil);
+}
+
+.sku-codigo {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--texto-apagado);
+}
+
+.btn-ver-ficha-casillero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--dorado-principal);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-ver-ficha-casillero:hover {
+  color: var(--dorado-brillante);
+  gap: 0.6rem;
+}
+
+/* Insignias de Disponibilidad */
+.insignia-disponibilidad {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.insignia-disponibilidad.disponible {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.insignia-disponibilidad.agotado {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.insignia-disponibilidad.tamano-md {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+}
+
+/* Catálogo y Buscador */
+.catalogo-banner-header {
+  padding: 8rem 1.5rem 3rem 1.5rem;
+  background: radial-gradient(circle at 50% 0%, var(--vino-glow), transparent 70%),
+    linear-gradient(180deg, #101010 0%, var(--bg-puro) 100%);
+  border-bottom: 1px solid var(--borde-sutil);
+}
+
+.catalogo-banner-sub {
+  color: var(--texto-ceniza);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0.75rem auto 0 auto;
+}
+
+.catalogo-filtros-contenedor {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.buscador-casillero-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.buscador-icon {
+  position: absolute;
+  left: 1.25rem;
+  color: var(--texto-apagado);
+}
+
+.buscador-input {
+  width: 100%;
+  background: var(--bg-tarjeta);
+  border: 1px solid var(--borde-sutil);
+  color: #fff;
+  padding: 1rem 3.2rem;
+  border-radius: 4px;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.buscador-input:focus {
+  outline: none;
+  border-color: var(--dorado-principal);
+  box-shadow: 0 0 15px var(--dorado-glow);
+}
+
+.buscador-limpiar-btn {
+  position: absolute;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--texto-apagado);
+  cursor: pointer;
+}
+
+.filtro-categorias-casillero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.filtro-btn-item {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--texto-ceniza);
+  background: var(--bg-tarjeta);
+  border: 1px solid var(--borde-sutil);
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filtro-btn-item:hover {
+  border-color: var(--dorado-principal);
+  color: var(--dorado-suave);
+}
+
+.filtro-btn-item.activo {
+  background: var(--dorado-principal);
+  border-color: var(--dorado-principal);
+  color: #000;
+  font-weight: 700;
+}
+
+/* Detalle de Producto / Ficha Técnica */
+.btn-volver-catalogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--texto-ceniza);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-volver-catalogo:hover {
+  color: var(--dorado-brillante);
+}
+
+.detalle-producto-casillero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  background: var(--bg-tarjeta);
+  border: 1px solid var(--borde-sutil);
+  border-radius: 6px;
+  padding: 3rem;
+}
+
+@media (max-width: 850px) {
+  .detalle-producto-casillero {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+}
+
+.detalle-imagen-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detalle-imagen-halo {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08), transparent 70%), #0c0c0c;
+  border: 1px solid var(--borde-sutil);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.detalle-botella-img {
+  max-height: 90%;
+  width: auto;
+  object-fit: contain;
+}
+
+.detalle-badge-posicion {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+}
+
+.detalle-info-contenedor {
+  display: flex;
+  flex-direction: column;
+}
+
+.detalle-categoria-tag {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--dorado-principal);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.detalle-nombre-botella {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.detalle-sku-codigo {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  color: var(--texto-apagado);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+}
+
+.subtitulo-seccion-dorado {
+  font-family: var(--fuente-titulos);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--dorado-suave);
+  margin-bottom: 0.85rem;
+}
+
+.detalle-notas-cata {
+  background: var(--bg-carbon);
+  border-left: 3px solid var(--dorado-principal);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.detalle-notas-cata p {
+  color: var(--texto-suave);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.especificaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 550px) {
+  .especificaciones-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.especificacion-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--bg-carbon);
+  border: 1px solid var(--borde-sutil);
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+}
+
+.spec-icon-dorado {
+  color: var(--dorado-principal);
+  flex-shrink: 0;
+}
+
+.spec-label-sub {
+  display: block;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--texto-apagado);
+  text-transform: uppercase;
+}
+
+.spec-val-texto {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* Spinner y Alertas */
+.cargando-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.cargando-spinner-ring {
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(197, 160, 89, 0.15);
+  border-top-color: var(--dorado-principal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.25rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cargando-icon {
+  color: var(--dorado-principal);
+}
+
+.cargando-texto {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--dorado-suave);
+}
+
+.alerta-error-casillero {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.vacio-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem;
+  background: var(--bg-tarjeta);
+  border: 1px dashed var(--borde-sutil);
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Footer */
+.footer-casillero {
+  background: #030303;
+  border-top: 1px solid var(--borde-sutil);
+  padding: 4rem 1.5rem 2.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-casillero-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.footer-top-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--borde-sutil);
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-title {
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: #fff;
+  font-weight: 700;
+}
+
+.footer-brand-sub {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--dorado-principal);
+  margin-top: 0.25rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer-socials a {
+  color: var(--texto-ceniza);
+  padding: 0.5rem;
+  border: 1px solid var(--borde-sutil);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.footer-socials a:hover {
+  border-color: var(--dorado-principal);
+  color: var(--dorado-brillante);
+}
+
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col-title {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--dorado-principal);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.footer-col a {
+  color: var(--texto-ceniza);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.footer-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--texto-suave);
+}
+
+.footer-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid var(--borde-sutil);
+  font-size: 0.8rem;
+  color: var(--texto-apagado);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-legal-links a {
+  color: var(--texto-apagado);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal-links a:hover {
+  color: var(--texto-ceniza);
 }

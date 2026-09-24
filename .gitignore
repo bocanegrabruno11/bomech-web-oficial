@@ -6,6 +6,7 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+*.code-workspace
 
 # ==========================================
 # BACKEND (Python / FastAPI)

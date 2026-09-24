@@ -1,0 +1,8 @@
+export interface Categoria {
+  id: number;
+  nombre: string;
+  slug: string;
+  descripcion?: string;
+  created_at?: string;
+  updated_at?: string;
+}
